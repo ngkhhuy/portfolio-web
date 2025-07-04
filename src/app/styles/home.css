@@ -1,0 +1,298 @@
+.home-container {
+  overflow: hidden;
+}
+
+/* Personal Info Section */
+.personal-info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; /* Tăng từ 400px lên 500px */
+  max-height: 80vh; /* Tăng từ 70vh lên 80vh */
+  overflow-y: auto;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.personal-info .about-title {
+  font-size: 2.8rem; /* Tăng từ 2.5rem lên 2.8rem */
+  font-weight: 500; /* Tăng từ 400 lên 500 */
+  margin-bottom: 25px;
+  color: white;
+  letter-spacing: 1px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  text-align: center;
+}
+
+.personal-info .about-subtitle {
+  font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
+  font-weight: 400; /* Giữ nguyên 400 */
+  margin-bottom: 20px;
+  color: white;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  text-align: center;
+}
+
+/* Glass morphism container cho phần about description */
+.about-description-container {
+  padding: 40px; /* Tăng từ 30px lên 40px */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px; /* Tăng từ 25px lên 30px */
+  min-height: 250px; /* Tăng từ 200px lên 250px */
+}
+
+.about-description-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.about-description-container:hover::before {
+  left: 100%;
+}
+
+.about-description-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.personal-info .about-description {
+  font-size: 1.2rem; /* Tăng từ 1.1rem lên 1.2rem */
+  line-height: 1.8; /* Tăng từ 1.7 lên 1.8 */
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 400; /* Tăng từ 300 lên 400 */
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  text-align: justify;
+}
+
+.personal-info .skills-title {
+  font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
+  font-weight: 500; /* Tăng từ 400 lên 500 */
+  margin-bottom: 25px;
+  color: white;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  text-align: center;
+}
+
+.skills-icons {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 25px; /* Tăng từ 20px lên 25px */
+}
+
+.skills-icons::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skills-container {
+  display: flex;
+  animation: scroll 15s linear infinite;
+  gap: 18px; /* Tăng từ 15px lên 18px */
+}
+
+.skill-icon {
+  width: 48px; /* Tăng từ 40px lên 48px */
+  height: 48px; /* Tăng từ 40px lên 48px */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-icon img {
+  width: 36px; /* Tăng từ 32px lên 36px */
+  height: 36px; /* Tăng từ 32px lên 36px */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.skill-icon:hover img {
+  transform: scale(1.1);
+}
+
+.tools-title {
+  font-size: 1rem; /* Tăng từ 0.9rem lên 1rem */
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-weight: 400; /* Tăng từ 300 lên 400 */
+  letter-spacing: 0.5px;
+  margin-top: 18px; /* Tăng từ 15px lên 18px */
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Light theme personal info */
+.light-theme .personal-info .about-title {
+  color: black;
+}
+
+.light-theme .personal-info .about-subtitle {
+  color: black;
+}
+
+.light-theme .about-description-container {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .about-description-container::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.light-theme .about-description-container:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .personal-info .about-description {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .personal-info .skills-title {
+  color: black;
+}
+
+.light-theme .skill-icon {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .skill-icon:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .tools-title {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.light-theme .skills-icons::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .personal-info {
+    width: 90%;
+    max-width: 450px; /* Tăng từ 350px lên 450px */
+    max-height: 80vh;
+  }
+  
+  .about-description-container {
+    padding: 35px; /* Tăng từ 30px lên 35px */
+    min-height: 220px; /* Tăng từ 180px lên 220px */
+  }
+  
+  .personal-info .about-description {
+    font-size: 1rem; /* Tăng từ 0.9rem lên 1rem */
+  }
+  
+  .personal-info .about-title {
+    font-size: 2.2rem; /* Tăng từ 1.8rem lên 2.2rem */
+  }
+  
+  .personal-info .about-subtitle {
+    font-size: 1.3rem; /* Tăng từ 1.1rem lên 1.3rem */
+  }
+  
+  .skill-icon {
+    width: 44px; /* Tăng từ 35px lên 44px */
+    height: 44px; /* Tăng từ 35px lên 44px */
+  }
+  
+  .skill-icon img {
+    width: 32px; /* Tăng từ 28px lên 32px */
+    height: 32px; /* Tăng từ 28px lên 32px */
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-info {
+    width: 95%;
+    max-width: 380px; /* Tăng từ 300px lên 380px */
+  }
+  
+  .about-description-container {
+    padding: 30px; /* Tăng từ 25px lên 30px */
+    min-height: 200px; /* Tăng từ 160px lên 200px */
+  }
+  
+  .personal-info .about-description {
+    font-size: 0.95rem; /* Tăng từ 0.85rem lên 0.95rem */
+    line-height: 1.7; /* Tăng từ 1.6 lên 1.7 */
+  }
+  
+  .personal-info .about-title {
+    font-size: 1.8rem; /* Tăng từ 1.5rem lên 1.8rem */
+  }
+  
+  .personal-info .about-subtitle {
+    font-size: 1.2rem; /* Tăng từ 1rem lên 1.2rem */
+  }
+  
+  .skill-icon {
+    width: 40px; /* Tăng từ 35px lên 40px */
+    height: 40px; /* Tăng từ 35px lên 40px */
+  }
+  
+  .skill-icon img {
+    width: 30px; /* Tăng từ 28px lên 30px */
+    height: 30px; /* Tăng từ 28px lên 30px */
+  }
+}

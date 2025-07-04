@@ -1,0 +1,404 @@
+.project-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.projects-content {
+  max-width: 100%;
+  margin: 0;
+  padding: 80px 20px 60px 180px;
+  position: relative;
+  z-index: 1;
+  height: auto;
+}
+
+.projects-title {
+  font-size: 2.8rem; /* Tăng từ 2.5rem lên 2.6rem */
+  font-weight: 450; /* Tăng từ 400 lên 500 */
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  letter-spacing: 1px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.projects-subtitle {
+  font-size: 1rem; /* Tăng từ 1rem lên 1.1rem */
+  text-align: center;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300; /* Tăng từ 300 lên 400 */
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.project-name {
+  font-size: 1.5rem; /* Tăng từ 1.5rem lên 1.7rem */
+  font-weight: 500; /* Tăng từ 400 lên 500 */
+  color: white;
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-status {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-status.completed {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.project-status.in-progress {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.project-description {
+  font-size: 0.9rem; /* Tăng từ 0.9rem lên 1rem */
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  font-weight: 300; /* Tăng từ 300 lên 400 */
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-features {
+  margin-bottom: 20px;
+}
+
+.project-features h4 {
+  color: white;
+  margin-bottom: 12px;
+  font-size: 1rem; /* Tăng từ 1rem lên 1.1rem */
+  font-weight: 450; /* Tăng từ 400 lên 500 */
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem; /* Tăng từ 0.85rem lên 0.95rem */
+  line-height: 1.4;
+  font-weight: 400; /* Tăng từ 300 lên 400 */
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.project-features li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.project-technologies {
+  margin-bottom: 25px;
+}
+
+.project-technologies h4 {
+  color: white;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 14px; /* Tăng từ 6px 12px lên 8px 14px */
+  border-radius: 15px;
+  font-size: 0.9rem; /* Tăng từ 0.8rem lên 0.9rem */
+  font-weight: 400; /* Tăng từ 300 lên 400 */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.tech-tag:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.github-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.github-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.demo-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.demo-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Light Theme Styles for Projects */
+.light-theme .projects-title {
+  color: black;
+}
+
+.light-theme .projects-subtitle {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .project-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .project-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .project-name {
+  color: black;
+}
+
+.light-theme .project-description {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .project-features h4 {
+  color: black;
+}
+
+.light-theme .project-features li {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.light-theme .project-features li::before {
+  color: black;
+}
+
+.light-theme .project-technologies h4 {
+  color: black;
+}
+
+.light-theme .tech-tag {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .tech-tag:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.light-theme .github-link {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .github-link:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.light-theme .demo-link {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .demo-link:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for project cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Responsive Design for Projects */
+@media (max-width: 768px) {
+  .projects-content {
+    padding: 80px 20px 60px 80px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .projects-title {
+    font-size: 2rem;
+  }
+  
+  .project-card {
+    padding: 20px;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .project-name {
+    font-size: 1.3rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .project-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-content {
+    padding: 60px 15px 40px 60px;
+  }
+  
+  .projects-title {
+    font-size: 1.8rem;
+  }
+  
+  .project-card {
+    padding: 15px;
+  }
+  
+  .tech-tags {
+    gap: 6px;
+  }
+  
+  .tech-tag {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+}

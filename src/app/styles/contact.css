@@ -1,0 +1,514 @@
+.contact-container {
+  /* Thay đổi overflow để có thể scroll giống projects */
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Bỏ height: 100vh để cho phép scroll */
+  box-sizing: border-box;
+  /* Ẩn scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.contact-container::-webkit-scrollbar {
+  display: none;
+}
+
+.contact-content {
+  max-width: 100%;
+  margin: 0;
+  /* Thay đổi padding giống projects */
+  padding: 80px 20px 60px 180px;
+  position: relative;
+  z-index: 1;
+  /* Thay đổi height để cho phép scroll */
+  height: auto;
+  /* Bỏ max-height và overflow: hidden */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Thay đổi từ center sang flex-start */
+  box-sizing: border-box;
+}
+
+.contact-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1vh;
+  color: white;
+  letter-spacing: 1px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.contact-subtitle {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  text-align: center;
+  margin-bottom: 2vh;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(15px, 2vw, 25px);
+  margin-top: 2vh;
+  /* Bỏ flex: 1 và overflow: hidden */
+  /* Bỏ max-height để cho phép scroll */
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: clamp(15px, 2vw, 20px);
+  padding: clamp(20px, 3vw, 30px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 100%;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-card-title {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 400;
+  color: white;
+  margin-bottom: clamp(15px, 2vh, 20px);
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  text-align: center;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vh, 18px);
+  flex: 1;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  padding: clamp(12px, 2vw, 18px);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: clamp(10px, 1.5vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-method:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-icon {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  min-width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-label {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.contact-value {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: white;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.contact-link:hover .contact-value {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: clamp(10px, 1.5vw, 15px);
+  margin-top: clamp(12px, 2vh, 18px);
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1vh, 12px);
+  padding: clamp(18px, 3vw, 22px) clamp(10px, 1.5vw, 15px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: clamp(10px, 1.5vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.social-icon {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-name {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 18px);
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 1vh, 8px);
+}
+
+.form-label {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.form-input,
+.form-textarea {
+  padding: clamp(10px, 2vw, 15px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(8px, 1vw, 10px);
+  color: white;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: clamp(80px, 12vh, 100px);
+  max-height: clamp(100px, 15vh, 120px);
+}
+
+.form-button {
+  padding: clamp(10px, 2vh, 15px) clamp(20px, 4vw, 30px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: clamp(8px, 1vw, 10px);
+  color: white;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.form-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.availability {
+  text-align: center;
+  margin-top: clamp(20px, 3vh, 25px);
+  padding: clamp(15px, 2.5vw, 20px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: clamp(10px, 1.5vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.availability-title {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: white;
+  margin-bottom: clamp(6px, 1vh, 10px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.availability-text {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  font-family: 'Neue Montreal', Arial, sans-serif;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: clamp(8px, 1vw, 10px);
+  height: clamp(8px, 1vw, 10px);
+  background: #4caf50;
+  border-radius: 50%;
+  margin-right: clamp(6px, 1vw, 8px);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Light Theme Styles for Contact */
+.light-theme .contact-title {
+  color: black;
+}
+
+.light-theme .contact-subtitle {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .contact-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .contact-card::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.light-theme .contact-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .contact-card-title {
+  color: black;
+}
+
+.light-theme .contact-method {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .contact-method:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .contact-icon {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .contact-label {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .contact-value {
+  color: black;
+}
+
+.light-theme .social-link {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.light-theme .social-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.light-theme .social-icon {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .form-input,
+.light-theme .form-textarea {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.light-theme .form-input:focus,
+.light-theme .form-textarea:focus {
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .form-label {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.light-theme .form-button {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.light-theme .form-button:hover {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.light-theme .availability {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .availability-title {
+  color: black;
+}
+
+.light-theme .availability-text {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animation for contact cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.contact-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Responsive Design for Contact */
+@media (max-width: 768px) {
+  .contact-content {
+    /* Thay đổi padding giống projects */
+    padding: 80px 20px 60px 80px;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    /* Bỏ max-height */
+  }
+  
+  .social-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    /* Thay đổi padding giống projects */
+    padding: 60px 15px 40px 60px;
+  }
+  
+  .contact-grid {
+    /* Bỏ max-height */
+  }
+  
+  .social-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+  .contact-content {
+    padding: 2vh 2vw 2vh 12vw;
+  }
+  
+  .contact-grid {
+    gap: 10px;
+    /* Bỏ max-height */
+  }
+  
+  .availability {
+    margin-top: 1vh;
+  }
+}

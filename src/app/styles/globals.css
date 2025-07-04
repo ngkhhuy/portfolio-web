@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Neue Montreal';
   src: url('/fonts/NeueMontreal-Light.otf') format('opentype');
-  font-weight: 900;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -16,19 +16,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Ẩn thanh cuộn */
+  overflow: hidden;
   background-color: black;
-}
-
-.home-container {
-  height: calc(100vh - 90px);
-  width: calc(100vw - 90px);
-  background-color: black;
-  border: 0.9px solid white;
-  margin: 45px;
-  box-sizing: border-box;
-  position: relative;
-  padding: 20px; /* Thêm padding để nội dung không chạm viền */
+  font-size: 18px;
 }
 
 /* Chỉ ẩn cursor ở body */
@@ -44,7 +34,7 @@ body {
   background: white;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9998;
   mix-blend-mode: difference;
   transition: all 0.1s ease;
 }
@@ -68,26 +58,39 @@ body {
   transition: all 0.15s ease;
 }
 
+/* Common Container */
+.container {
+  height: calc(100vh - 90px);
+  width: calc(100vw - 90px);
+  background-color: black;
+  border: 0.9px solid white;
+  margin: 45px;
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px;
+}
+
 /* Site Name */
 .site-name {
   position: absolute;
   top: 30px;
   left: 40px;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 300;
   letter-spacing: 1px;
   color: white;
   font-family: 'Neue Montreal', Arial, sans-serif;
 }
+
 .site-description {
-    position: absolute;
-    top: 65px;
-    left: 40px;
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: white;
-    font-family: 'Neue Montreal', Arial, sans-serif;
+  position: absolute;
+  top: 65px;
+  left: 40px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: white;
+  font-family: 'Neue Montreal', Arial, sans-serif;
 }
 
 /* Navigation */
@@ -97,9 +100,10 @@ body {
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  flex-direction: column; /* Navigation dọc */
-  gap: 10px; /* Khoảng cách giữa các link */
+  flex-direction: column;
+  gap: 10px;
   align-items: flex-start;
+  z-index: 9999;
 }
 
 .nav-link {
@@ -110,6 +114,9 @@ body {
   letter-spacing: 1px;
   transition: opacity 0.3s ease;
   font-family: 'Neue Montreal', Arial, sans-serif;
+  cursor: pointer;
+  position: relative;
+  z-index: 9999;
 }
 
 .nav-link:hover {
@@ -122,37 +129,39 @@ body {
 
 /* Theme Toggle Buttons */
 .theme-buttons {
-  position: absolute;
-  top: -20px; /* Đưa ra ngoài viền trên */
-  right: 10px; /* Khoảng cách 10px từ viền bên phải */
+  position: fixed; /* Thay đổi từ absolute sang fixed */
+  top: 20px; /* Thay đổi từ -20px sang 20px */
+  right: 50px; /* Thay đổi từ 10px sang 20px */
   display: flex;
-  gap: 10px;
+  gap: 15px; /* Tăng từ 10px lên 15px */
   align-items: center;
-  z-index: 9998; /* Đảm bảo nằm dưới cursor nhưng trên content */
+  z-index: 9999; /* Tăng z-index */
 }
 
 .theme-option {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px; /* Tăng từ 5px lên 8px */
   color: white;
   font-size: 12px;
   font-family: 'Neue Montreal', Arial, sans-serif;
   font-weight: 300;
-  letter-spacing: 2px;
+  letter-spacing: 1px; /* Giảm từ 2px xuống 1px */
 }
 
 .theme-btn {
-  width: 15px;
-  height: 15px;
-  border: 1px solid white;
+  width: 18px; /* Tăng từ 15px lên 18px */
+  height: 18px; /* Tăng từ 15px lên 18px */
+  border: 2px solid white; /* Tăng border từ 1px lên 2px */
   background-color: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 0%; /* Thêm border-radius để làm tròn */
 }
 
 .theme-btn:hover {
   background-color: white;
+  transform: scale(1.1); /* Thêm hiệu ứng scale */
 }
 
 .theme-btn.active {
@@ -164,7 +173,7 @@ body.light-theme {
   background-color: white;
 }
 
-.light-theme .home-container {
+.light-theme .container {
   background-color: white;
   border-color: black;
 }
@@ -262,4 +271,42 @@ body.light-theme {
 
 .light-theme .loading-text {
   color: black;
+}
+
+/* Responsive cho theme buttons */
+@media (max-width: 768px) {
+  .theme-buttons {
+    top: 15px;
+    right: 15px;
+    gap: 12px;
+  }
+  
+  .theme-option {
+    font-size: 10px;
+    gap: 6px;
+  }
+  
+  .theme-btn {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-buttons {
+    top: 10px;
+    right: 10px;
+    gap: 10px;
+  }
+  
+  .theme-option {
+    font-size: 9px;
+    gap: 5px;
+  }
+  
+  .theme-btn {
+    width: 14px;
+    height: 14px;
+    border-width: 1px;
+  }
 }

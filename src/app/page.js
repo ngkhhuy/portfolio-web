@@ -1,25 +1,56 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import './styles/home.css';
 
 export default function Home() {
   const [theme, setTheme] = useState('dark');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Mặc định là false
+  const [mounted, setMounted] = useState(false);
 
+  // Đảm bảo component đã mount (client-side)
   useEffect(() => {
-    document.body.className = theme === 'light' ? 'light-theme' : '';
-  }, [theme]);
-
-  useEffect(() => {
-    // Loading animation
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // 3 giây
-
-    return () => clearTimeout(timer);
+    setMounted(true);
   }, []);
+
+  // Kiểm tra Loading Screen chỉ hiển thị lần đầu tiên
+  useEffect(() => {
+    if (mounted) {
+      const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
+      
+      if (!hasLoadedBefore) {
+        // Lần đầu tiên truy cập trong session
+        setIsLoading(true);
+        sessionStorage.setItem('hasLoadedBefore', 'true');
+        
+        // Tắt loading sau 3 giây
+        const timer = setTimeout(() => {
+          setIsLoading(false);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [mounted]);
+
+  // Đồng bộ theme từ localStorage khi component mount
+  useEffect(() => {
+    if (mounted) {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+      document.body.className = savedTheme === 'light' ? 'light-theme' : '';
+    }
+  }, [mounted]);
+
+  // Cập nhật theme và lưu vào localStorage
+  useEffect(() => {
+    if (mounted) {
+      document.body.className = theme === 'light' ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+    }
+  }, [theme, mounted]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -52,19 +83,24 @@ export default function Home() {
     setTheme(newTheme);
   };
 
+  // Không render gì cho đến khi component đã mount
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
-      {/* Loading Screen */}
+      {/* Loading Screen - Chỉ hiển thị lần đầu tiên */}
       {isLoading && (
         <div className="loading-screen">
           <div className="loading-text">
-            Nguyen Khanh Huy Portfolio
+            <strong>Nguyen Khanh Huy</strong> Portfolio
           </div>
         </div>
       )}
 
       {/* Main Content */}
-      <div className="home-container">
+      <div className="container home-container">
         {/* Custom Cursor */}
         <div 
           className={`cursor ${isHovering ? 'hover' : ''}`}
@@ -94,6 +130,80 @@ export default function Home() {
           <Link href="/project" className="nav-link">Projects</Link>
           <Link href="/contact" className="nav-link">Contact</Link>
         </nav>
+
+        {/* Personal Info */}
+        <div className="personal-info">
+          <h1 className="about-title">About</h1>
+        
+          
+          <div className="about-description-container">
+            <p className="about-description">
+              I am Nguyen Khanh Huy, a 4th-year Information Technology student majoring in Information Systems. 
+              I have a strong interest in building web systems, especially in backend development. 
+              I am a self-motivated learner and enjoy working in teams to solve problems and grow together. 
+              I am eager to gain hands-on experience and contribute to real-world projects as a Web Developer Intern.
+            </p>
+          </div>
+          
+          <h2 className="skills-title">Skills</h2>
+
+          <div className="skills-icons">
+            <div className="skills-container">
+              {/* First set of icons */}
+              <div className="skill-icon">
+                <img src="/icons/javascript.png" alt="Javascript" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/nodejs.png" alt="NodeJs" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/typescript.png" alt="TypeScript" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/mongodb.png" alt="MongoDB" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/express.png" alt="ExpressJs" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/react.png" alt="React" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/git.png" alt="Git" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/postman.png" alt="Postman" />
+              </div>
+              
+              {/* Duplicate set for seamless loop */}
+              <div className="skill-icon">
+                <img src="/icons/javascript.png" alt="Javascript" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/nodejs.png" alt="NodeJs" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/typescript.png" alt="TypeScript" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/mongodb.png" alt="MongoDB" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/express.png" alt="ExpressJs" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/react.png" alt="React" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/git.png" alt="Git" />
+              </div>
+              <div className="skill-icon">
+                <img src="/icons/postman.png" alt="Postman" />
+              </div>
+            </div>
+          </div>
+
+        </div>
 
         {/* Theme Toggle Buttons */}
         <div className="theme-buttons">
