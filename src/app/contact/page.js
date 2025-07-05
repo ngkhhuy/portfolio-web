@@ -175,7 +175,7 @@ export default function Contact() {
       {}
       <div className="contact-content">
         <h1 className="contact-title">Get In Touch</h1>
-        <p className="contact-subtitle">Let's discuss opportunities and collaborations</p>
+        <p className="contact-subtitle">Let&apos;s discuss opportunities and collaborations</p>
 
         <div className="contact-grid">
           {}
@@ -324,7 +324,7 @@ export default function Contact() {
               {}
               {submitStatus === 'success' && (
                 <div className="form-message success">
-                  ✅ Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
               {submitStatus === 'error' && (

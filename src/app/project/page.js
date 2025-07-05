@@ -137,7 +137,7 @@ export default function Project() {
       {/* Projects Content */}
       <div className="projects-content">
         <h1 className="projects-title">My Projects</h1>
-        <p className="projects-subtitle">Here are some of the projects I've done</p>
+        <p className="projects-subtitle">Here are some of the projects I&apos;ve done</p>
 
         <div className="projects-grid">
           {projects.map((project) => (
