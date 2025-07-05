@@ -9,12 +9,12 @@ export default function Project() {
   const [isHovering, setIsHovering] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Đảm bảo component đã mount (client-side)
+  
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Đồng bộ theme từ localStorage khi component mount
+  
   useEffect(() => {
     if (mounted) {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -23,7 +23,7 @@ export default function Project() {
     }
   }, [mounted]);
 
-  // Cập nhật theme và lưu vào localStorage
+  
   useEffect(() => {
     if (mounted) {
       document.body.className = theme === 'light' ? 'light-theme' : '';
@@ -64,48 +64,47 @@ export default function Project() {
   const projects = [
     {
       id: 1,
-      name: "E-Commerce Website",
-      description: "Website thương mại điện tử hoàn chỉnh với các tính năng quản lý sản phẩm, giỏ hàng, thanh toán và quản lý đơn hàng.",
+      name: "Photo Gallery App Backend API",
+      description: "A RESTful and real-time chat backend for a photo-sharing application built with Node.js, Express, MongoDB, and Socket.IO..",
       mainFeatures: [
-        "Đăng ký/Đăng nhập người dùng",
-        "Quản lý sản phẩm (CRUD)",
-        "Giỏ hàng và thanh toán",
-        "Quản lý đơn hàng",
-        "Admin dashboard",
-        "Responsive design"
+        "User registration & login with JWT ",
+        "Password reset functionality",
+        "Photo upload to Cloudinary",
+        "CRUD operations on photos",
+        "Control photo visibility (public/private)",
+        "Real-time chat with Socket.IO and MongoDB persistence"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Express.js", "JWT"],
+      technologies: ["Node.js", "MongoDB", "Express.js", "JWT","Socket.IO", "CORS"],
       status: "Completed",
-      githubLink: "#",
-      demoLink: "#"
+      githubLink: "https://github.com/ngkhhuy/Photo-App-Backend",
     },
     {
       id: 2,
-      name: "Task Management System",
-      description: "Hệ thống quản lý công việc cho nhóm với các tính năng phân công task, theo dõi tiến độ và báo cáo.",
+      name: "File Transfer and Chat Website ",
+      description: "A web application built with Node.js and Express that allows users to transfer files and chat with each other.",
       mainFeatures: [
-        "Quản lý dự án và task",
-        "Phân công công việc",
-        "Theo dõi tiến độ",
+        "User Authentication (Login/Register)",
+        "File Upload and Download",
+        "Real-time Chat using Socket.IO",
         "Chat realtime",
-        "Báo cáo thống kê",
-        "Quản lý thành viên nhóm"
+        "Admin Dashboard",
+        "File Management System"
       ],
-      technologies: ["Next.js", "TypeScript", "Socket.io", "PostgreSQL", "Prisma"],
-      status: "In Progress",
-      githubLink: "#",
-      demoLink: "#"
+      technologies: ["Node.js", "Express.js", "FPT Server", "My SQL", "Socket.IO"],
+      status: "Completed",
+      githubLink: "https://github.com/ngkhhuy/PBL4",
+      
     }
   ];
 
-  // Không render gì cho đến khi component đã mount
+ 
   if (!mounted) {
     return null;
   }
 
   return (
     <div className="container project-container">
-      {/* Custom Cursor */}
+      {}
       <div 
         className={`cursor ${isHovering ? 'hover' : ''}`}
         style={{
@@ -114,7 +113,7 @@ export default function Project() {
         }}
       />
       
-      {/* Cursor Light Effect */}
+      {}
       <div 
         className={`cursor-light ${isHovering ? 'hover' : ''}`}
         style={{
@@ -138,7 +137,7 @@ export default function Project() {
       {/* Projects Content */}
       <div className="projects-content">
         <h1 className="projects-title">My Projects</h1>
-        <p className="projects-subtitle">Here are some of the projects I've worked on</p>
+        <p className="projects-subtitle">Here are some of the projects I've done</p>
 
         <div className="projects-grid">
           {projects.map((project) => (
@@ -174,9 +173,7 @@ export default function Project() {
                 <a href={project.githubLink} className="project-link github-link">
                   <span>GitHub</span>
                 </a>
-                <a href={project.demoLink} className="project-link demo-link">
-                  <span>Live Demo</span>
-                </a>
+                
               </div>
             </div>
           ))}

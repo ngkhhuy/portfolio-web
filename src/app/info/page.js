@@ -9,12 +9,12 @@ export default function Info() {
   const [isHovering, setIsHovering] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Đảm bảo component đã mount (client-side)
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Đồng bộ theme từ localStorage khi component mount
+ 
   useEffect(() => {
     if (mounted) {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -23,7 +23,7 @@ export default function Info() {
     }
   }, [mounted]);
 
-  // Cập nhật theme và lưu vào localStorage
+  
   useEffect(() => {
     if (mounted) {
       document.body.className = theme === 'light' ? 'light-theme' : '';
@@ -60,14 +60,14 @@ export default function Info() {
     setTheme(newTheme);
   };
 
-  // Không render gì cho đến khi component đã mount
+
   if (!mounted) {
     return null;
   }
 
   return (
     <div className="container info-container">
-      {/* Custom Cursor */}
+      {}
       <div 
         className={`cursor ${isHovering ? 'hover' : ''}`}
         style={{
@@ -76,7 +76,7 @@ export default function Info() {
         }}
       />
       
-      {/* Cursor Light Effect */}
+      {}
       <div 
         className={`cursor-light ${isHovering ? 'hover' : ''}`}
         style={{
@@ -85,7 +85,7 @@ export default function Info() {
         }}
       />
 
-      {/* Site Name */}
+      {}
       <div className="site-name">Nguyen Khanh Huy</div>
       <div className="site-description">Software Engineer</div>
 
@@ -97,13 +97,13 @@ export default function Info() {
         <Link href="/contact" className="nav-link">Contact</Link>
       </nav>
 
-      {/* Info Content */}
+      {}
       <div className="info-content">
         <h1 className="info-title">Personal Information</h1>
         <p className="info-subtitle">Get to know more about me</p>
 
         <div className="info-grid">
-          {/* Basic Information */}
+          {}
           <div className="info-card">
             <h3 className="info-card-title">Basic Information</h3>
             <div className="info-item">
@@ -128,7 +128,7 @@ export default function Info() {
             </div>
           </div>
 
-          {/* Education */}
+          {}
           <div className="info-card">
             <h3 className="info-card-title">Education</h3>
             <div className="info-item">
@@ -150,7 +150,7 @@ export default function Info() {
             </div>
           </div>
 
-          {/* Technical Skills */}
+          {}
           <div className="info-card">
             <h3 className="info-card-title">Technical Skills</h3>
             <div className="skills-list">
@@ -191,7 +191,7 @@ export default function Info() {
         </div>
       </div>
 
-      {/* Theme Toggle Buttons */}
+      {}
       <div className="theme-buttons">
         <div className="theme-option">
           <button 

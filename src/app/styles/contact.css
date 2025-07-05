@@ -1,10 +1,7 @@
 .contact-container {
-  /* Thay đổi overflow để có thể scroll giống projects */
   overflow-y: auto;
   overflow-x: hidden;
-  /* Bỏ height: 100vh để cho phép scroll */
   box-sizing: border-box;
-  /* Ẩn scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -16,16 +13,13 @@
 .contact-content {
   max-width: 100%;
   margin: 0;
-  /* Thay đổi padding giống projects */
   padding: 80px 20px 60px 180px;
   position: relative;
   z-index: 1;
-  /* Thay đổi height để cho phép scroll */
   height: auto;
-  /* Bỏ max-height và overflow: hidden */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Thay đổi từ center sang flex-start */
+  justify-content: flex-start;
   box-sizing: border-box;
 }
 
@@ -54,8 +48,6 @@
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: clamp(15px, 2vw, 25px);
   margin-top: 2vh;
-  /* Bỏ flex: 1 và overflow: hidden */
-  /* Bỏ max-height để cho phép scroll */
 }
 
 .contact-card {
@@ -140,6 +132,24 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden; 
+  padding: 5px; 
+}
+
+.social-icon img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  filter: brightness(0) invert(1);
+}
+
+.light-theme .social-icon img {
+  filter: brightness(0) invert(0);
+}
+
+.light-theme .social-icon {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact-info {
@@ -214,13 +224,26 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden; 
+  padding: 5px; 
 }
 
-.social-name {
-  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-  font-weight: 300;
-  letter-spacing: 0.3px;
-  text-align: center;
+.social-icon img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+  filter: brightness(0) invert(1); 
+}
+
+
+.light-theme .social-icon img {
+  filter: brightness(0) invert(0); 
+}
+
+
+.light-theme .social-icon {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .contact-form {
@@ -440,7 +463,7 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
-/* Animation for contact cards */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -464,10 +487,9 @@
   animation-delay: 0.4s;
 }
 
-/* Responsive Design for Contact */
+
 @media (max-width: 768px) {
   .contact-content {
-    /* Thay đổi padding giống projects */
     padding: 80px 20px 60px 80px;
   }
   
@@ -484,20 +506,16 @@
 
 @media (max-width: 480px) {
   .contact-content {
-    /* Thay đổi padding giống projects */
     padding: 60px 15px 40px 60px;
   }
   
-  .contact-grid {
-    /* Bỏ max-height */
-  }
+ 
   
   .social-links {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Landscape orientation */
 @media (orientation: landscape) and (max-height: 600px) {
   .contact-content {
     padding: 2vh 2vw 2vh 12vw;
@@ -505,7 +523,7 @@
   
   .contact-grid {
     gap: 10px;
-    /* Bỏ max-height */
+ 
   }
   
   .availability {

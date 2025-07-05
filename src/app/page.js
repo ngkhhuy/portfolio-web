@@ -7,35 +7,35 @@ export default function Home() {
   const [theme, setTheme] = useState('dark');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Mặc định là false
+  const [isLoading, setIsLoading] = useState(false); 
   const [mounted, setMounted] = useState(false);
 
-  // Đảm bảo component đã mount (client-side)
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Kiểm tra Loading Screen chỉ hiển thị lần đầu tiên
+ 
   useEffect(() => {
     if (mounted) {
       const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
       
       if (!hasLoadedBefore) {
-        // Lần đầu tiên truy cập trong session
+      
         setIsLoading(true);
         sessionStorage.setItem('hasLoadedBefore', 'true');
         
-        // Tắt loading sau 3 giây
+      
         const timer = setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
+        }, 2500);
 
         return () => clearTimeout(timer);
       }
     }
   }, [mounted]);
 
-  // Đồng bộ theme từ localStorage khi component mount
+
   useEffect(() => {
     if (mounted) {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -44,7 +44,7 @@ export default function Home() {
     }
   }, [mounted]);
 
-  // Cập nhật theme và lưu vào localStorage
+ 
   useEffect(() => {
     if (mounted) {
       document.body.className = theme === 'light' ? 'light-theme' : '';
@@ -60,10 +60,10 @@ export default function Home() {
     const handleMouseEnter = () => setIsHovering(true);
     const handleMouseLeave = () => setIsHovering(false);
 
-    // Add mouse move listener
+   
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Add hover listeners for interactive elements
+    
     const interactiveElements = document.querySelectorAll('a, button');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', handleMouseEnter);
@@ -83,14 +83,14 @@ export default function Home() {
     setTheme(newTheme);
   };
 
-  // Không render gì cho đến khi component đã mount
+ 
   if (!mounted) {
     return null;
   }
 
   return (
     <>
-      {/* Loading Screen - Chỉ hiển thị lần đầu tiên */}
+      {}
       {isLoading && (
         <div className="loading-screen">
           <div className="loading-text">
@@ -101,7 +101,7 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="container home-container">
-        {/* Custom Cursor */}
+        {}
         <div 
           className={`cursor ${isHovering ? 'hover' : ''}`}
           style={{
@@ -110,7 +110,7 @@ export default function Home() {
           }}
         />
         
-        {/* Cursor Light Effect */}
+        {}
         <div 
           className={`cursor-light ${isHovering ? 'hover' : ''}`}
           style={{
@@ -149,7 +149,7 @@ export default function Home() {
 
           <div className="skills-icons">
             <div className="skills-container">
-              {/* First set of icons */}
+              {}
               <div className="skill-icon">
                 <img src="/icons/javascript.png" alt="Javascript" />
               </div>

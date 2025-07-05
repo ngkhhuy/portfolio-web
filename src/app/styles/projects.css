@@ -13,8 +13,8 @@
 }
 
 .projects-title {
-  font-size: 2.8rem; /* Tăng từ 2.5rem lên 2.6rem */
-  font-weight: 450; /* Tăng từ 400 lên 500 */
+  font-size: 2.8rem;
+  font-weight: 450;
   text-align: center;
   margin-bottom: 20px;
   color: white;
@@ -23,11 +23,11 @@
 }
 
 .projects-subtitle {
-  font-size: 1rem; /* Tăng từ 1rem lên 1.1rem */
+  font-size: 1rem;
   text-align: center;
   margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 300; /* Tăng từ 300 lên 400 */
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-family: 'Neue Montreal', Arial, sans-serif;
 }
@@ -80,8 +80,8 @@
 }
 
 .project-name {
-  font-size: 1.5rem; /* Tăng từ 1.5rem lên 1.7rem */
-  font-weight: 500; /* Tăng từ 400 lên 500 */
+  font-size: 1.5rem;
+  font-weight: 500;
   color: white;
   margin: 0;
   letter-spacing: 0.5px;
@@ -111,11 +111,11 @@
 }
 
 .project-description {
-  font-size: 0.9rem; /* Tăng từ 0.9rem lên 1rem */
+  font-size: 0.9rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
-  font-weight: 300; /* Tăng từ 300 lên 400 */
+  font-weight: 300;
   letter-spacing: 0.3px;
   font-family: 'Neue Montreal', Arial, sans-serif;
 }
@@ -127,8 +127,8 @@
 .project-features h4 {
   color: white;
   margin-bottom: 12px;
-  font-size: 1rem; /* Tăng từ 1rem lên 1.1rem */
-  font-weight: 450; /* Tăng từ 400 lên 500 */
+  font-size: 1rem;
+  font-weight: 450;
   letter-spacing: 0.5px;
   font-family: 'Neue Montreal', Arial, sans-serif;
 }
@@ -144,9 +144,9 @@
   padding-left: 20px;
   position: relative;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem; /* Tăng từ 0.85rem lên 0.95rem */
+  font-size: 0.9rem;
   line-height: 1.4;
-  font-weight: 400; /* Tăng từ 300 lên 400 */
+  font-weight: 400;
   letter-spacing: 0.3px;
   font-family: 'Neue Montreal', Arial, sans-serif;
 }
@@ -182,10 +182,10 @@
 .tech-tag {
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  padding: 8px 14px; /* Tăng từ 6px 12px lên 8px 14px */
+  padding: 8px 14px; 
   border-radius: 15px;
-  font-size: 0.9rem; /* Tăng từ 0.8rem lên 0.9rem */
-  font-weight: 400; /* Tăng từ 300 lên 400 */
+  font-size: 0.9rem; 
+  font-weight: 400; 
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
   letter-spacing: 0.3px;
